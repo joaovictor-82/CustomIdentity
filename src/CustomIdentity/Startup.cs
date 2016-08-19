@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using CustomIdentity.Models.Context;
 using CustomIdentity.Models.Auth;
 using Microsoft.EntityFrameworkCore;
+using CustomIdentity.Models.Seed;
 
 namespace CustomIdentity
 {
@@ -56,8 +57,10 @@ namespace CustomIdentity
             }
 
             app.UseStaticFiles();
-
             app.UseIdentity();
+
+            //Add Roles seed
+            app.AddRoles();
 
             app.UseMvc(routes =>
             {
