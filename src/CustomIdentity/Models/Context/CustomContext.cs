@@ -32,10 +32,6 @@ namespace CustomIdentity.Models.Context
                 u.Ignore(x => x.TwoFactorEnabled);
                 u.Ignore(x => x.Id);
                 u.Ignore(x => x.UserName);
-
-                /*u.HasMany(x => x.Claims)
-                .WithOne()
-                .HasForeignKey(x => x.Id);*/
             });
 
             builder.Entity<Role>(p =>
