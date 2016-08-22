@@ -7,6 +7,7 @@ using CustomIdentity.Models;
 
 namespace CustomIdentity.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -91,6 +92,11 @@ namespace CustomIdentity.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction(nameof(AccountController.Login), "Account");
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
         private void AddErrors(IdentityResult result)

@@ -10,5 +10,11 @@ namespace CustomIdentity.Controllers
         {
             return View();
         }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult OnlyAdmin()
+        {
+            return View();
+        }
     }
 }
